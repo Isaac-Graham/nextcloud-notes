@@ -50,9 +50,11 @@
 
     <!-- Error -->
     <string name="error_sync">Sinkronizazioak huts egin du: %1$s</string>
+    <string name="error_synchronization">Sinkronizazioak huts egin du</string>
     <string name="error_json">Notes aplikazioa zerbitzarian aktibatuta dago?</string>
     <string name="error_no_network">Ez dago sare konexiorik</string>
     <string name="error_files_app">Files aplikazioa instalatu duzu?</string>
+    <string name="error_token_mismatch">Ezin da fitxategi aplikazioarekin konektatu.</string>
     <string name="error_insufficient_storage">Zure zerbitzariaren biltegia beteta dago.</string>
     <string name="error_unknown">Errore ezezagun bat gertatu da.</string>
 
@@ -128,6 +130,7 @@
     <string name="unlock_notes">Desblokeatzearen oharrak</string>
     <string name="simple_beta">Beta</string>
     <string name="could_not_copy_to_clipboard">Ezin izan da arbelera kopiatu</string>
+    <string name="error_dialog_title">Oh ez - Orain zer? 🙁</string>
     <!-- Array: note modes -->
     <string-array name="noteMode_entries">
         <item>Ireki edizio moduan</item>
