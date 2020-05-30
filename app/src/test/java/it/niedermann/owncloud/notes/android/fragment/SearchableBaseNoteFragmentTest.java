@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 
 public class SearchableBaseNoteFragmentTest {
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/769
     @Test
     public void testCountOccurrencesFixed() {
         try {
@@ -41,6 +42,7 @@ public class SearchableBaseNoteFragmentTest {
         }
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/769
     @Test
     public void testNullOrEmptyInput() {
         try {
@@ -63,3 +65,4 @@ public class SearchableBaseNoteFragmentTest {
         }
     }
 }
+

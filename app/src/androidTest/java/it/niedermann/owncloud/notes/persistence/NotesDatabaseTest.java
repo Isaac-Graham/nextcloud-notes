@@ -84,6 +84,7 @@ public class NotesDatabaseTest {
         }
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_01_addNote_CloudNote() {
         long accountID = account.getId();   // retrieve account id
@@ -134,6 +135,7 @@ public class NotesDatabaseTest {
         assertEquals(accountID, note.getAccountId());
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_02_addNote_and_getNotesCustom_DBNote() {
         try {
@@ -189,6 +191,7 @@ public class NotesDatabaseTest {
         }
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_03_searchNotes() {
         long thisAccountID = account.getId();
@@ -209,6 +212,7 @@ public class NotesDatabaseTest {
         assertEquals(notes.size(), 4);  // We've added three test notes by now
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_04_getCategories() {
         List<NavigationAdapter.NavigationItem> categories = db.getCategories(account.getId());
@@ -222,6 +226,7 @@ public class NotesDatabaseTest {
         assertTrue(exitFlag);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814s
     @Test
     public void test_05_searchCategories() {
         List<NavigationAdapter.NavigationItem> categories = db.searchCategories(account.getId(), "Dia");
@@ -245,6 +250,7 @@ public class NotesDatabaseTest {
         assertFalse(exitFlag);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_06_deleteNote() {
         long thisAccountID = account.getId();
@@ -267,6 +273,7 @@ public class NotesDatabaseTest {
         Log.i("Test_06_deleteNote_All_Notes_After_Deletion", "Size: " + deleted_size);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_07_multiAddNote() {
         long thisAccountID = account.getId();
@@ -330,6 +337,7 @@ public class NotesDatabaseTest {
         Log.i("Test_07_multiAddNote_All_Notes_After_Addition", "Size: " + add_size);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_08_multiSearchNotes() {
         long thisAccountID = account.getId();
@@ -358,6 +366,7 @@ public class NotesDatabaseTest {
         assertEquals(notes.size(), 1);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_09_multiGetCategories() {
         List<NavigationAdapter.NavigationItem> categories = db.getCategories(account.getId());
@@ -371,6 +380,7 @@ public class NotesDatabaseTest {
         Log.i("count count count", "count " + count);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_10_multiSearchCategories() {
         List<NavigationAdapter.NavigationItem> categories = db.searchCategories(account.getId(), "M");
@@ -421,6 +431,7 @@ public class NotesDatabaseTest {
         assertFalse(exitFlag);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_11_multiDeleteNote() {
         long thisAccountID = account.getId();
@@ -440,6 +451,7 @@ public class NotesDatabaseTest {
         Log.i("Test_11_multiDeleteNote_All_After_Deletion", "Size: " + deleted_size);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_12_Chinese() {
         long accountID = account.getId();
@@ -516,6 +528,7 @@ public class NotesDatabaseTest {
         Log.i("Test_12_Chinese_All_Notes_After_Deletion", "Size: " + deleted_size);
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
     @Test
     public void test_13_getCategoryIdByTitle() {
         try {
@@ -552,6 +565,7 @@ public class NotesDatabaseTest {
     }
 
 //    @Test
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
 //    public void test_14_upgrade() {
 //        SQLiteDatabase sqlite_db = db.getReadableDatabase();
 //        Cursor cursor = sqlite_db.rawQuery("SELECT * FROM " + AbstractNotesDatabase.table_category, null);
@@ -561,6 +575,7 @@ public class NotesDatabaseTest {
 //        assertEquals(0, sorting_method);
 //    }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
     @Test
     public void test_15_getAndModifyCategoryOrderByTitle() {
         // add a note to database
@@ -582,7 +597,7 @@ public class NotesDatabaseTest {
         db.deleteNote(noteID, DBStatus.VOID);
     }
 
-    // CS304 (manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
     @Test
     public void test_16_getAndModifyCategoryOrder() {
         // Normal categories

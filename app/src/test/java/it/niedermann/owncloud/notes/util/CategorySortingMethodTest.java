@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 public class CategorySortingMethodTest {
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
     @Test
     public void getCSMID() {
         CategorySortingMethod csm0 = CategorySortingMethod.SORT_MODIFIED_DESC;
@@ -16,6 +17,7 @@ public class CategorySortingMethodTest {
         assertEquals(1, csm1.getCSMID());
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
     @Test
     public void getSOrder() {
         CategorySortingMethod csm0 = CategorySortingMethod.SORT_MODIFIED_DESC;
@@ -24,6 +26,7 @@ public class CategorySortingMethodTest {
         assertEquals("TITLE ASC", csm1.getSorder());
     }
 
+    // CS304(manually written) Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
     @Test
     public void getCSM() {
         CategorySortingMethod csm0 = CategorySortingMethod.SORT_MODIFIED_DESC;
@@ -32,3 +35,4 @@ public class CategorySortingMethodTest {
         assertEquals(csm1, CategorySortingMethod.getCSM(1));
     }
 }
+
