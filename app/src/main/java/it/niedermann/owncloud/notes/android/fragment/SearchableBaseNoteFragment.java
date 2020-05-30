@@ -99,7 +99,7 @@ public abstract class SearchableBaseNoteFragment extends BaseNoteFragment {
                 colorWithText(searchView.getQuery().toString(), currentOccurrence);
             });
         }
-
+        // CS304 Issue link: // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/769
         if (prev != null) {
             prev.setOnClickListener(v -> {
                 occurrenceCount = countOccurrences(getContent(), searchView.getQuery().toString());
@@ -110,6 +110,7 @@ public abstract class SearchableBaseNoteFragment extends BaseNoteFragment {
         }
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/769
             private DelayQueryRunnable delayQueryTask;
             private Handler handler = new Handler();
 
@@ -258,6 +259,7 @@ public abstract class SearchableBaseNoteFragment extends BaseNoteFragment {
     }
 
     private static int countOccurrences(String haystack, String needle) {
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/769
         if (haystack == null || haystack.isEmpty() || needle == null || needle.isEmpty()) {
             return 0;
         }
