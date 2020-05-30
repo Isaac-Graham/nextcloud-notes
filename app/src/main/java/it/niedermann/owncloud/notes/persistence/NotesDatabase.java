@@ -127,6 +127,7 @@ public class NotesDatabase extends AbstractNotesDatabase {
         values.put(key_modified, note.getModified().getTimeInMillis() / 1000);
         values.put(key_content, note.getContent());
         values.put(key_favorite, note.isFavorite());
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
         values.put(key_category, getCategoryIdByTitle(accountId, note.getCategory()));
         values.put(key_etag, note.getEtag());
         return db.insert(table_notes, null, values);
@@ -208,6 +209,7 @@ public class NotesDatabase extends AbstractNotesDatabase {
     @NonNull
     @WorkerThread
     private List<DBNote> getNotesCustom(long accountId, @NonNull String selection, @NonNull String[] selectionArgs, @Nullable String orderBy, @Nullable String limit, boolean pruneContent) {
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
         if (selectionArgs.length > 2) {
             Log.v(TAG, selection + "   ----   " + selectionArgs[0] + " " + selectionArgs[1] + " " + selectionArgs[2]);
         }
@@ -312,7 +314,7 @@ public class NotesDatabase extends AbstractNotesDatabase {
         if (query != null) {
             where.add(key_status + " != ?");
             args.add(DBStatus.LOCAL_DELETED.getTitle());
-
+            // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
             where.add("(" + key_title + " LIKE ? OR " + key_content + " LIKE ? OR " + key_category + " LIKE ?" + ")");
             args.add("%" + query + "%");
             args.add("%" + query + "%");
@@ -393,6 +395,7 @@ public class NotesDatabase extends AbstractNotesDatabase {
     @NonNull
     @WorkerThread
     public List<NavigationAdapter.NavigationItem> searchCategories(long accountId, String search) {
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
         validateAccountId(accountId);
         String columns = key_category_title + ", COUNT(*)";
         String selection = key_status + " != ?  AND " +
@@ -453,6 +456,7 @@ public class NotesDatabase extends AbstractNotesDatabase {
      * @param callback   When the synchronization is finished, this callback will be invoked (optional).
      */
     public void setCategory(SingleSignOnAccount ssoAccount, @NonNull DBNote note, @NonNull String category, @Nullable ISyncCallback callback) {
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
         note.setCategory(category);
         note.setStatus(DBStatus.LOCAL_EDITED);
         SQLiteDatabase db = this.getWritableDatabase();
@@ -488,6 +492,7 @@ public class NotesDatabase extends AbstractNotesDatabase {
      */
     public DBNote updateNoteAndSync(SingleSignOnAccount ssoAccount, long accountId, @NonNull DBNote oldNote, @Nullable String newContent, @Nullable ISyncCallback callback) {
         //debugPrintFullDB();
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
         DBNote newNote;
         if (newContent == null) {
             newNote = new DBNote(oldNote.getId(), oldNote.getRemoteId(), oldNote.getModified(), oldNote.getTitle(), oldNote.getContent(), oldNote.isFavorite(), oldNote.getCategory(), oldNote.getEtag(), DBStatus.LOCAL_EDITED, accountId, oldNote.getExcerpt());
@@ -959,6 +964,7 @@ public class NotesDatabase extends AbstractNotesDatabase {
     @NonNull
     @WorkerThread
     private Integer getCategoryIdByTitle(long accountId, @NonNull String categoryTitle) {
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
         validateAccountId(accountId);
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(
@@ -992,6 +998,7 @@ public class NotesDatabase extends AbstractNotesDatabase {
      * @param accountId The user accountId
      */
     private void removeEmptyCategory(long accountId) {
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
         validateAccountId(accountId);
         getReadableDatabase().delete(table_category,
                 key_category_id + " NOT IN (SELECT " + key_category + " FROM " + table_notes + ")",

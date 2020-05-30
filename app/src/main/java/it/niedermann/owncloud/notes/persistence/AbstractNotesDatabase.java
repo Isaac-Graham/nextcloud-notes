@@ -125,6 +125,7 @@ abstract class AbstractNotesDatabase extends SQLiteOpenHelper {
     }
 
     private void createCategoryTable(@NonNull SQLiteDatabase db) {
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
         db.execSQL("CREATE TABLE " + table_category + "(" +
                 key_category_id + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 key_category_account_id + " INTEGER NOT NULL, " +
@@ -371,6 +372,7 @@ abstract class AbstractNotesDatabase extends SQLiteOpenHelper {
             notifyNotesChanged();
         }
         if (oldVersion < 15) {
+            // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/814
             // Rename a tmp_NOTES table.
             String tmpTableNotes = String.format("tmp_%s", "NOTES");
             db.execSQL("ALTER TABLE NOTES RENAME TO " + tmpTableNotes);
