@@ -1033,11 +1033,12 @@ public class NotesDatabase extends AbstractNotesDatabase {
      * The sorting method of the category can be used to decide
      * to use which sorting method to show the notes for each categories.
      *
-     * @param accountId         The user accountID
-     * @param categoryTitle     The category title
+     * @param accountId     The user accountID
+     * @param categoryTitle The category title
      * @return The sorting method in CategorySortingMethod enum format
      */
     public CategorySortingMethod getCategoryOrderByTitle(long accountId, String categoryTitle) {
+        // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
         validateAccountId(accountId);
 
         long categoryId = getCategoryIdByTitle(accountId, categoryTitle);
@@ -1059,11 +1060,12 @@ public class NotesDatabase extends AbstractNotesDatabase {
      * The user can determine use which sorting method to show the notes for a category.
      * When the user changes the sorting method, this method should be called.
      *
-     * @param accountId         The user accountID
-     * @param categoryTitle     The category title
-     * @param sortingMethod     The sorting method in CategorySortingMethod enum format
+     * @param accountId     The user accountID
+     * @param categoryTitle The category title
+     * @param sortingMethod The sorting method in CategorySortingMethod enum format
      */
     public void modifyCategoryOrderByTitle(
+            // CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
             long accountId, String categoryTitle, CategorySortingMethod sortingMethod) {
         validateAccountId(accountId);
 
@@ -1084,8 +1086,8 @@ public class NotesDatabase extends AbstractNotesDatabase {
      * The sorting method of the category can be used to decide
      * to use which sorting method to show the notes for each categories.
      *
-     * @param accountId     The user accountID
-     * @param category      The category
+     * @param accountId The user accountID
+     * @param category  The category
      * @return The sorting method in CategorySortingMethod enum format
      */
     public CategorySortingMethod getCategoryOrder(long accountId, Category category) {
@@ -1127,9 +1129,9 @@ public class NotesDatabase extends AbstractNotesDatabase {
      * The user can determine use which sorting method to show the notes for a category.
      * When the user changes the sorting method, this method should be called.
      *
-     * @param accountId         The user accountID
-     * @param category          The category to be modified
-     * @param sortingMethod     The sorting method in CategorySortingMethod enum format
+     * @param accountId     The user accountID
+     * @param category      The category to be modified
+     * @param sortingMethod The sorting method in CategorySortingMethod enum format
      */
     public void modifyCategoryOrder(
             long accountId, Category category, CategorySortingMethod sortingMethod) {
