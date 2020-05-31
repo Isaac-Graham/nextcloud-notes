@@ -1,5 +1,6 @@
 package it.niedermann.owncloud.notes.util;
 
+// CS304 Issue link: https://github.com/stefan-niedermann/nextcloud-notes/issues/603
 public enum CategorySortingMethod {
     SORT_MODIFIED_DESC("MODIFIED DESC"),
     SORT_LEXICOGRAPHICAL_ASC("TITLE ASC");
